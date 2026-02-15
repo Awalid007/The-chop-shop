@@ -45,16 +45,19 @@ export const chatWithBot = async (history: { role: string, parts: { text: string
     try {
         const chat = ai.models.generateContent({
             model,
-            contents: {
+            contents: [{
                 role: "user",
                 parts: [{ text: systemInstruction + "\n\nUser: " + newMessage }]
-            }
+            }]
         });
 
         const result = await chat;
         return result.text();
-    } catch (error) {
+    } catch (error: any) {
         console.error("Chatbot Error:", error);
-        return "I'm having a little trouble connecting to the shop right now. Please call us at (540) 300-6232.";
+        if (error.message?.includes('API key')) {
+            return "I'm currently undergoing maintenance (API Key missing). Please call us at (540) 300-6232 to book!";
+        }
+        return `I'm having a little trouble connecting to the shop right now. (Error: ${error.message || 'Unknown'}). Please call us at (540) 300-6232.`;
     }
 };
