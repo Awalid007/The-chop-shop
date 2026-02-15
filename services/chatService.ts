@@ -1,7 +1,10 @@
 
 import { GoogleGenAI } from "@google/genai";
 
-const getApiKey = () => process.env.API_KEY || process.env.GEMINI_API_KEY;
+const getApiKey = () =>
+    import.meta.env.VITE_GEMINI_API_KEY ||
+    process.env.API_KEY ||
+    process.env.GEMINI_API_KEY;
 
 export const chatWithBot = async (history: { role: string, parts: { text: string }[] }[], newMessage: string) => {
     const apiKey = getApiKey();
