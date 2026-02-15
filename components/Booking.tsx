@@ -8,13 +8,13 @@ const Booking: React.FC = () => {
     <section id="booking" className="bg-slate-900 py-32 overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row bg-white rounded-3xl overflow-hidden shadow-2xl">
-          
+
           <div className="lg:w-2/5 p-12 md:p-16 bg-slate-950 text-white flex flex-col">
             <h3 className="text-3xl font-extrabold uppercase tracking-tight mb-8">WHY STAND OUT?</h3>
             <p className="text-slate-400 text-sm mb-12 leading-relaxed">
               Discover why VA Chop Shop stands out. We provide personalized, luxury grooming with expert barbers, premium products, and unmatched convenience from our heart in Polaris.
             </p>
-            
+
             <div className="mt-auto space-y-10">
               <div className="flex items-center gap-6">
                 <div className="bg-zeal p-3 rounded-full"><svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg></div>
@@ -43,7 +43,7 @@ const Booking: React.FC = () => {
                 <p className="text-slate-500 text-sm uppercase font-bold tracking-widest">We'll contact you shortly to confirm.</p>
               </div>
             ) : (
-              <form onSubmit={(e) => {e.preventDefault(); setSubmitted(true);}} className="space-y-6">
+              <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-1">Full Name</label>
@@ -55,13 +55,13 @@ const Booking: React.FC = () => {
                   </div>
                 </div>
                 <div className="space-y-2">
-                    <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-1">Service Type</label>
-                    <select className="w-full bg-white border border-slate-200 rounded-xl p-4 focus:ring-2 focus:ring-zeal focus:outline-none transition-all text-sm font-medium appearance-none">
-                      <option>SELECT SERVICE</option>
-                      <option>SIGNATURE CHOP</option>
-                      <option>FACE SHAVE</option>
-                      <option>BEARD SCULPTURE</option>
-                    </select>
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-1">Service Type</label>
+                  <select className="w-full bg-white border border-slate-200 rounded-xl p-4 focus:ring-2 focus:ring-zeal focus:outline-none transition-all text-sm font-medium appearance-none">
+                    <option>SELECT SERVICE</option>
+                    <option>SIGNATURE CHOP</option>
+                    <option>FACE SHAVE</option>
+                    <option>BEARD SCULPTURE</option>
+                  </select>
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-1">Message</label>
@@ -76,21 +76,21 @@ const Booking: React.FC = () => {
 
         </div>
       </div>
-      
+
       {/* Map Placeholder as per image */}
       <div className="w-full h-80 mt-20 grayscale hover:grayscale-0 transition-all opacity-50 hover:opacity-100 bg-slate-200 relative">
-          <div className="absolute inset-0 flex items-center justify-center">
-              <div className="bg-white p-4 rounded-lg shadow-lg flex items-center gap-3">
-                  <div className="w-3 h-3 bg-zeal rounded-full animate-ping"></div>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-600">8330 Lyra Dr, Columbus, OH</span>
-              </div>
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="bg-white p-4 rounded-lg shadow-lg flex items-center gap-3">
+            <div className="w-3 h-3 bg-zeal rounded-full animate-ping"></div>
+            <span className="text-[10px] font-bold uppercase tracking-widest text-slate-600">2769 Richmond Hwy, Stafford, VA</span>
           </div>
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d3051.487820468925!2d-82.9815024!3d40.1423456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8838ed5f3405785f%3A0xc077f3e4663d917b!2s8330%20Lyra%20Dr%2C%20Columbus%2C%20OH%2043240!5e0!3m2!1sen!2sus!4v1715620000000!5m2!1sen!2sus" 
-            className="w-full h-full border-none" 
-            allowFullScreen={false} 
-            loading="lazy" 
-          />
+        </div>
+        <iframe
+          src="https://maps.google.com/maps?q=2769%20Richmond%20Hwy%20Ste%20105%2C%20Stafford%2C%20VA%2022554&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          className="w-full h-full border-none"
+          allowFullScreen={false}
+          loading="lazy"
+        />
       </div>
     </section>
   );

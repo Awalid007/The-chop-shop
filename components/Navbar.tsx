@@ -27,8 +27,10 @@ const Navbar: React.FC = () => {
 
         <div className="hidden lg:flex items-center gap-10">
           <a href="#services" className={`text-xs font-bold uppercase tracking-widest hover:text-zeal transition-colors ${scrolled ? 'text-slate-600' : 'text-white'}`}>Services</a>
-          <a href="#lab" className={`text-xs font-bold uppercase tracking-widest hover:text-zeal transition-colors ${scrolled ? 'text-slate-600' : 'text-white'}`}>AI Lab</a>
-          <a href="#booking" className="bg-zeal text-white px-6 py-2.5 rounded text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-zeal-dark transition-all">Book Appointment</a>
+          <a href="#booking" className={`text-xs font-bold uppercase tracking-widest hover:text-zeal transition-colors ${scrolled ? 'text-slate-600' : 'text-white'}`}>Book Now</a>
+          <a href="tel:5403006232" className={`border-2 px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all ${scrolled ? 'border-zeal text-zeal hover:bg-zeal hover:text-white' : 'border-white text-white hover:bg-white hover:text-slate-900'}`}>
+            (540) 300-6232
+          </a>
         </div>
 
         <button className={scrolled ? 'text-slate-900 lg:hidden' : 'text-white lg:hidden'}>

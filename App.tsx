@@ -3,7 +3,6 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
-import StyleConsultant from './components/StyleConsultant';
 import Booking from './components/Booking';
 import Footer from './components/Footer';
 
@@ -117,7 +116,6 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        <StyleConsultant />
         <Booking />
       </main>
       <Footer />
