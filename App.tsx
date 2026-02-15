@@ -4,7 +4,6 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import Booking from './components/Booking';
-import Chatbot from './components/Chatbot';
 import Footer from './components/Footer';
 
 const App: React.FC = () => {
@@ -118,7 +117,6 @@ const App: React.FC = () => {
         </section>
 
         <Booking />
-        <Chatbot />
       </main>
       <Footer />
     </div>
