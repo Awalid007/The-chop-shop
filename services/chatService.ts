@@ -1,5 +1,5 @@
 
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const getApiKey = () =>
     import.meta.env.VITE_GEMINI_API_KEY ||
@@ -14,8 +14,8 @@ export const chatWithBot = async (history: { role: string, parts: { text: string
         return "I'm currently undergoing maintenance (API Key missing). Please call us at (540) 300-6232 to book!";
     }
 
-    const ai = new GoogleGenAI({ apiKey });
-    const model = 'gemini-1.5-flash-001';
+    const genAI = new GoogleGenerativeAI(apiKey);
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     const systemInstruction = `You are "ChopBot", the friendly and professional virtual concierge for "The Chop Shop" in Stafford, VA.
 
@@ -43,16 +43,9 @@ export const chatWithBot = async (history: { role: string, parts: { text: string
   `;
 
     try {
-        const chat = ai.models.generateContent({
-            model,
-            contents: [{
-                role: "user",
-                parts: [{ text: systemInstruction + "\n\nUser: " + newMessage }]
-            }]
-        });
-
-        const result = await chat;
-        return result.text();
+        const result = await model.generateContent(`${systemInstruction}\n\nUser: ${newMessage}`);
+        const response = await result.response;
+        return response.text();
     } catch (error: any) {
         console.error("Chatbot Error:", error);
         if (error.message?.includes('API key')) {
