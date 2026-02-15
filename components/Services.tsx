@@ -2,10 +2,11 @@
 import React from 'react';
 
 const services = [
-  { id: 1, name: 'Signature Chop', description: 'Precision fade or taper with hot towel neck shave and styling.', price: '$35', icon: 'M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758L5 19m0-14l4.121 4.121' },
-  { id: 2, name: 'Face Shave', description: 'Classic straight razor shave with premium oil and hot towel.', price: '$35', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
-  { id: 3, name: 'Beard Sculpture', description: 'Detailed beard shaping and razor line-up for the modern man.', price: '$20', icon: 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9' },
-  { id: 4, name: 'Head Shave', description: 'Smooth, straight razor head shave with scalp conditioning.', price: '$35', icon: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z' },
+  { id: 1, name: 'Signature Haircut', description: 'Precision fade, taper, or shear cut with hot towel neck shave and styling.', price: '$35', icon: 'M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758L5 19m0-14l4.121 4.121' },
+  { id: 2, name: 'Beard Sculpture', description: 'Detailed beard shaping, razor line-up, and hot towel treatment.', price: '$25', icon: 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9' },
+  { id: 3, name: 'Little Gents (Kids 12&U)', description: 'Patient, professional cuts for the young gentlemen.', price: '$30', icon: 'M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z' },
+  { id: 4, name: 'Military & First Responder', description: 'Honor and respect with a sharp regulation cut at a special rate.', price: '$30', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
+  { id: 5, name: 'Womens Precision Cut', description: 'Short style cuts, undershaves, and design work.', price: '$35+', icon: 'M3 21v-8a2 2 0 012-2h14a2 2 0 012 2v8M12 3v18' },
 ];
 
 const Services: React.FC = () => {
