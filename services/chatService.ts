@@ -15,7 +15,11 @@ export const chatWithBot = async (history: { role: string, parts: { text: string
     }
 
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+
+    // List of models to try in order of preference
+    const modelsToTry = ["gemini-1.5-flash", "gemini-1.5-flash-001", "gemini-1.5-pro", "gemini-pro"];
+
+    let lastError: any = null;
 
     const systemInstruction = `You are "ChopBot", the friendly and professional virtual concierge for "The Chop Shop" in Stafford, VA.
 
@@ -42,15 +46,22 @@ export const chatWithBot = async (history: { role: string, parts: { text: string
   - Always sign off with a friendly barber-style closing like "Stay sharp!" or "See you in the chair!".
   `;
 
-    try {
-        const result = await model.generateContent(`${systemInstruction}\n\nUser: ${newMessage}`);
-        const response = await result.response;
-        return response.text();
-    } catch (error: any) {
-        console.error("Chatbot Error:", error);
-        if (error.message?.includes('API key')) {
-            return "I'm currently undergoing maintenance (API Key missing). Please call us at (540) 300-6232 to book!";
+    for (const modelName of modelsToTry) {
+        try {
+            const model = genAI.getGenerativeModel({ model: modelName });
+            const result = await model.generateContent(`${systemInstruction}\n\nUser: ${newMessage}`);
+            const response = await result.response;
+            return response.text();
+        } catch (error: any) {
+            console.warn(`Failed to connect with model ${modelName}:`, error);
+            lastError = error;
+            // Continue to next model
+            if (error.message?.includes('API key')) {
+                return "I'm currently undergoing maintenance (API Key missing). Please call us at (540) 300-6232 to book!";
+            }
         }
-        return `I'm having a little trouble connecting to the shop right now. (Error: ${error.message || 'Unknown'}). Please call us at (540) 300-6232.`;
     }
+
+    console.error("All models failed. Last error:", lastError);
+    return `I'm having a little trouble connecting to the shop right now. (Error: ${lastError?.message || 'Connection Failed'}). Please call us at (540) 300-6232.`;
 };
