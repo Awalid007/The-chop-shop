@@ -1,0 +1,7 @@
+{
+  "name": "VA Chop Shop Polaris",
+  "description": "Premium barbershop in Columbus, OH. Expert fades, tapers, and straight razor shaves near Polaris Fashion Place.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
