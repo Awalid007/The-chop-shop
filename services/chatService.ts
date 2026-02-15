@@ -15,7 +15,7 @@ export const chatWithBot = async (history: { role: string, parts: { text: string
     }
 
     const ai = new GoogleGenAI({ apiKey });
-    const model = 'gemini-1.5-flash';
+    const model = 'gemini-1.5-flash-001';
 
     const systemInstruction = `You are "ChopBot", the friendly and professional virtual concierge for "The Chop Shop" in Stafford, VA.
 
